@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Кликер</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      height: 100%;
+    }
+
+    #balance {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    #clicker {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      text-align: center;
+      line-height: 150px;
+      font-size: 24px;
+      color: #333;
+      user-select: none;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+      width: 100%; /* Занимает всю ширину для адаптивности */
+    }
+
+    #bottom-buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <div id="balance">0</div>
+    <div id="clicker">Клик!</div>
+    <div id="bottom-buttons">
+      <a href="friends.html" class="button">Друзья</a>
+      <a href="quests.html" class="button">Квесты</a>
+      <a href="upgrades.html" class="button">Улучшения</a>
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let clickMultiplier = 1;
+
+    function updateScore() {
+      document.getElementById('balance').textContent = score;
+    }
+
+    document.getElementById('clicker').addEventListener('click', function() {
+      score += clickMultiplier;
+      updateScore();
+    });
+
+    updateScore();
+  </script>
+
+</body>
+</html>
